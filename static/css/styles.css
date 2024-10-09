@@ -1,0 +1,272 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f2027;
+    /* background: radial-gradient(circle at 10% 10%, #1e3c72, #2a5298, #0f2027, #203a43, #2c5364); */
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 70vw; /* Set width for the map container */
+    display: flex;
+    flex-direction: column; /* Maintain vertical layout inside the container */
+    justify-content: center;
+    align-items: center;
+}
+
+.container2 {
+    width: 100vw;
+    height: 93vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#map {
+    width: 68vw; /* Full width of the parent container */
+    height: 60vh; /* Height of the map */
+    border: 2px solid #a59ff8;
+    border-radius: 8px;
+    box-shadow: 0 0px 10px rgb(127, 255, 77);
+    margin: 20px;
+}
+
+.content-box {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: space-between; /* Space items evenly */
+    align-items: stretch; /* Stretch items to the same height */
+    height: 93vh;
+    
+}
+
+
+.map-search {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    width: 80vw; 
+    z-index: '10px';
+}
+
+#search-box {
+    width: 60%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+   
+}
+
+.coordinates {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0px 10px rgb(127, 255, 77)
+}
+
+.navbar {
+    width: 100vw;
+    height: 7vh;
+    background-color: #070527;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 1.2em;
+    color: white;
+    box-shadow: 0 7px 20px rgb(127, 255, 77);
+    padding-left: 20px;
+    z-index: 100;
+}
+
+.map-controls {
+    margin: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap : 20px;
+}
+
+#current-location-btn {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 0px 10px rgb(127, 255, 77)
+}
+
+#current-location-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 0px 20px rgb(127, 255, 77)
+}
+
+#submit {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 0px 10px rgb(127, 255, 77)
+}
+
+.button {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 0px 10px rgb(127, 255, 77)
+}
+
+#submit:hover {
+    background-color: #45a049;
+    box-shadow: 0 0px 20px rgb(127, 255, 77)
+}
+
+.image{
+    width: min-content;
+    height: min-content;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-left: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.blend-image {
+    height: 7vh;
+    width: 7vh;
+    mix-blend-mode: multiply; /* Blends with the background */
+    filter: brightness(0.9) contrast(1.2); /* Adjusts the appearance */
+    background-color: transparent; /* Makes the image background transparent if possible */
+}
+
+.reight-content-box{
+    width: 28vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 93vh;
+    /* background: transparent; */
+    background-color: rgba(255, 255, 255, 0.945);
+    backdrop-filter: blur(100px);
+    padding: 20px;  
+    overflow: auto;
+}
+
+.bottom-content-box{
+    width: 70vw;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 35vh;
+    /* background: transparent; */
+    background-color: rgba(255, 255, 255, 0.945);
+    backdrop-filter: blur(100px);
+    padding: 20px;  
+}
+
+.slider-container {
+    margin-top: 10px; /* Add some space above the slider */
+    color: rgb(248, 247, 245);
+}
+
+#value-slider {
+    width: 100%; /* Make the slider take full width */
+    color: #4caf50;
+}
+
+label {
+    display: block; /* Stack the label above the slider */
+    margin-bottom: 5px; /* Space between label and slider */
+    color: white;
+}
+
+
+canvas {
+    max-width: 800px;
+    margin: 20px auto;
+    display: block;
+  }
+
+
+Button {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 0px 10px rgb(127, 255, 77)
+}  
+
+#myChart {
+    width: 80%;
+    max-width: 600px;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.xml-display {
+    white-space: pre-wrap;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    overflow: auto;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+h1 {
+    text-align: center;
+}
+
+#responceMetaData{
+    width: 35vw;
+    height: 35vh;
+    overflow: auto;
+}
+
+.graphDiv{
+    width: 35vw;
+    height: 35vh;
+}

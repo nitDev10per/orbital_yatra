@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Apps</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xml2js/0.4.23/xml2js.min.js"></script>
+
+</head>
+
+<body>
+    <div id="navbar" class="navbar">
+        <div class="image">
+            <div class="image">
+                <img src="{{ url_for('static', filename='images/giphy.webp') }}" alt="logo"
+                    style="height: 7vh; width: 7vh; background-color: transparent;">
+            </div>
+
+        </div>
+        Orbital Yatra
+    </div>
+    <div class="content-box">
+        <div id="loading" style="display: none;">Loading...</div>
+        <div class="container" id="container">
+            <div id="map" class="map"></div>
+            
+            <div class="map-search">
+                <input id="search-box" type="text" placeholder="Search location">
+            </div>
+            
+            <div class="map-controls">
+                <div id="coordinates" class="coordinates">
+                    Click on the map to get Latitude and Longitude.
+                </div>
+                <button id="current-location-btn">Use Current Location</button>
+                <button id="submit" onclick="submit()">Submit</button>
+
+                <div class="slider-container">
+                    <label for="value-slider">Select preferred Cloud Cover (0 to 1):</label>
+                    <input type="range" id="value-slider" min="0" max="1" step="0.01" value="0" oninput="updateValueDisplay(this.value)">
+                    <span id="slider-value">0</span> <!-- Display the selected value -->
+                </div>
+            </div>
+            <div class="bottom-content-box" id="bottom-box">
+                <!-- <canvas id="lineChart" width="400" height="200" style="margin-left: 20px;"></canvas>  -->
+                <!-- <canvas id="myChart"></canvas> -->
+                <div class="graphDiv">
+                    <h1>Landsat Pixel Band Values</h1>
+                    <canvas id="pixelValuesChart" width="400", height="200"></canvas>
+                 </div>
+                 <div id="responceMetaData" >
+                    <h1>Upcoming Landsat Pass Dates</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Platform</th>
+                                <th>Time (+/- 00:15:00 hrs UTC)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="landsatTableBody">
+                        </tbody>
+                    </table>
+                 </div>
+                 
+                            </div>
+        </div>
+        <div class="reight-content-box" id="right-box">
+            <h1>Landsat Metadata<span style="position: absolute; top: 20px; right: 20px;"><button
+                        class="button">Download</button></span></h1>
+                        <div id=""></div>
+                        <div id="xmlData" class="xml-display">
+                            Loading data...
+                        </div>
+        </div>
+       
+
+    </div>
+
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Google Maps API -->
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAwod7UdtVY-MU2yZOn15D1XAZXx4sf5A&callback=initMap&libraries=places"
+        defer>
+        </script>
+    <!--  -->
+    <!-- Your script file -->
+    
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Script to initialize the chart -->
+    <!-- <script>
+        // Function to initialize the chart with default data
+        function renderChart() {
+            const ctx = document.getElementById('lineChart').getContext('2d');
+            const lineChart = new Chart(ctx, {
+                type: 'line', // Chart type: Line chart
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], // X-axis labels
+                    datasets: [{
+                        label: 'Orbital Altitude (km)',
+                        data: [100, 200, 150, 300, 250, 400, 350], // Y-axis values
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Line background color (fill)
+                        borderColor: 'rgba(75, 192, 192, 1)', // Line border color
+                        borderWidth: 2, // Line width
+                        fill: true // Fill under the line
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true // Start Y-axis at zero
+                        }
+                    }
+                }
+            });
+        }
+
+        // Call the renderChart function after the page loads
+        window.onload = function () {
+            renderChart();
+        };
+    </script> -->
+</body>
+
+</html>
